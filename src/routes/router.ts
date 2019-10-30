@@ -7,7 +7,8 @@ export class ApiRouter {
 
     // Creates the routes for this router and returns a populated router object
     public getRouter(): express.Router {
-        this.router.get("/hello", this.controller.getHello);
+        this.router.get("/hello", this.controller.getAllHellos);
+        this.router.get("/hello/:name", this.controller.getHellos);
         this.router.post("/hello", this.controller.postHello);
         return this.router;
     }
