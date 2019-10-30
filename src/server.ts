@@ -1,11 +1,13 @@
 import bodyParser from "body-parser";
 import express from "express";
+import mongoose from "mongoose";
 
-import {ApiRouter} from "./router";
+import {ApiRouter} from "./routes/router";
 
 class Application {
     public app: express.Application;
     public port: number;
+    public mongoose: mongoose.Mongoose;
 
     constructor() {
         this.app = express();
@@ -13,6 +15,7 @@ class Application {
         this.app.use(bodyParser.urlencoded({ extended: false }));
         this.app.use(bodyParser.json());
         this.initCors();
+        this.initDatabase();
     }
     // Starts the server on the port specified in the environment or on port 3000 if none specified.
     public start(): void {
@@ -36,6 +39,12 @@ class Application {
     // setup routes for the express server
     public buildRoutes(): void {
         this.app.use("/api", new ApiRouter().getRouter());
+    }
+
+    // initializes connection to mongo database
+    public initDatabase(): void {
+        mongoose.Promise = global.Promise;
+        mongoose.connect("mongodb://localhost:27017/SpotifyClone");
     }
 }
 new Application().start();
