@@ -11,7 +11,7 @@ export class Controller {
         });
     }
     // gets hellos only specific person from database
-    public getHellos(req: express.Request, res: express.Response) {
+    public getHellos(req: express.Request, res: express.Response): void {
          const helloFrom = req.params.name;
          Hello.find({from: helloFrom}, (err, hello) => {
             if (err) { res.send(err); } else { res.send(hello); }
