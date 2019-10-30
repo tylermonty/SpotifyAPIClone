@@ -3,7 +3,6 @@ import express from "express";
 import mongoose from "mongoose";
 
 import {ArtistRouter} from "./routes/artist";
-import {ApiRouter} from "./routes/router";
 // import {SongRouter} from "./routes/song";
 // import {PlaylistRouter} from "./routes/playlist";
 // import {AlbumRouter} from "./routes/album";
@@ -42,7 +41,6 @@ class Application {
     }
     // setup routes for the express server
     public buildRoutes(): void {
-        this.app.use("/api", new ApiRouter().getRouter());
         this.app.use("/api", new ArtistRouter().getRouter());
         // this.app.use("/api", new AlbumRouter().getRouter());
         // this.app.use("/api", new PlaylistRouter().getRouter());
