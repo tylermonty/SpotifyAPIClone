@@ -2,10 +2,11 @@ import bodyParser from "body-parser";
 import express from "express";
 import mongoose from "mongoose";
 
+import {AlbumRouter} from "./routes/album";
 import {ArtistRouter} from "./routes/artist";
-// import {SongRouter} from "./routes/song";
-// import {PlaylistRouter} from "./routes/playlist";
-// import {AlbumRouter} from "./routes/album";
+import {PlaylistRouter} from "./routes/playlist";
+import {SongRouter} from "./routes/song";
+import {UserRouter} from "./routes/user";
 
 class Application {
     public app: express.Application;
@@ -42,16 +43,16 @@ class Application {
     // setup routes for the express server
     public buildRoutes(): void {
         this.app.use("/api", new ArtistRouter().getRouter());
-        // this.app.use("/api", new AlbumRouter().getRouter());
-        // this.app.use("/api", new PlaylistRouter().getRouter());
-        // this.app.use("/api", new SongRouter().getRouter());
-
+        this.app.use("/api", new AlbumRouter().getRouter());
+        this.app.use("/api", new PlaylistRouter().getRouter());
+        this.app.use("/api", new SongRouter().getRouter());
+        this.app.use("/api", new UserRouter().getRouter());
     }
 
     // initializes connection to mongo database
     public initDatabase(): void {
         mongoose.Promise = global.Promise;
-        mongoose.connect("mongodb://localhost:27017/SpotifyClone");
+        mongoose.connect("mongodb://localhost:27017/SpotifyClone", {useNewUrlParser: true});
     }
 }
 new Application().start();
