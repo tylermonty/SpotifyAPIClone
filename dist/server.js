@@ -7,7 +7,6 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const artist_1 = require("./routes/artist");
-const router_1 = require("./routes/router");
 // import {SongRouter} from "./routes/song";
 // import {PlaylistRouter} from "./routes/playlist";
 // import {AlbumRouter} from "./routes/album";
@@ -40,7 +39,6 @@ class Application {
     }
     // setup routes for the express server
     buildRoutes() {
-        this.app.use("/api", new router_1.ApiRouter().getRouter());
         this.app.use("/api", new artist_1.ArtistRouter().getRouter());
         // this.app.use("/api", new AlbumRouter().getRouter());
         // this.app.use("/api", new PlaylistRouter().getRouter());
