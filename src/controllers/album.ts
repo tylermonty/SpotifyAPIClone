@@ -11,6 +11,11 @@ export class AlbumController {
             if (err) { res.send(err); } else { res.send(album); }
         });
     }
+    public getAlbumsByArtist(req: express.Request, res: express.Response): void {
+        Album.find({artist: req.params.artist}, (err, albums) => {
+            if (err) { res.send(err); } else if (albums) { res.send(albums); } else { res.send("could not find albums for given artist"); }
+    });
+}
     public getAlbum(req: express.Request, res: express.Response): void {
         Album.findById(req.params.id, (err, album) => {
             if (err) { res.send(err); } else if (album) { res.send(album); } else { res.send("album not found"); }

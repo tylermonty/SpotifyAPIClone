@@ -8,6 +8,7 @@ export class AlbumRouter {
 
     // Creates the routes for this router and returns a populated router object
     public getRouter(): express.Router {
+        this.router.get("/album/artist/:artist", this.controller.getAlbumsByArtist);
         this.router.get("/album", this.controller.getAlbums);
         this.router.get("/album/:id", this.controller.getAlbum);
         this.router.post("/album", this.controller.createAlbum);
