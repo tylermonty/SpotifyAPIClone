@@ -1,3 +1,4 @@
+// playlist controller
 import express from "express";
 import mongoose from "mongoose";
 import { PlaylistSchema } from "../models/playlist";

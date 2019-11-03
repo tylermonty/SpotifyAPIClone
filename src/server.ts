@@ -2,10 +2,10 @@ import bodyParser from "body-parser";
 import express from "express";
 import mongoose from "mongoose";
 
-// import {SongRouter} from "./routes/song";
-// import {PlaylistRouter} from "./routes/playlist";
 import {AlbumRouter} from "./routes/album";
 import {ArtistRouter} from "./routes/artist";
+import {PlaylistRouter} from "./routes/playlist";
+import {SongRouter} from "./routes/song";
 
 class Application {
     public app: express.Application;
@@ -43,8 +43,8 @@ class Application {
     public buildRoutes(): void {
         this.app.use("/api", new ArtistRouter().getRouter());
         this.app.use("/api", new AlbumRouter().getRouter());
-        // this.app.use("/api", new PlaylistRouter().getRouter());
-        // this.app.use("/api", new SongRouter().getRouter());
+        this.app.use("/api", new PlaylistRouter().getRouter());
+        this.app.use("/api", new SongRouter().getRouter());
 
     }
 
