@@ -1,8 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
-import { AlbumSchema } from "../models/album"
-import { SongSchema } from "../models/song";
+import { AlbumSchema } from "../models/album";
 import { ArtistSchema } from "../models/artist";
+import { SongSchema } from "../models/song";
 
 const Song = mongoose.model("Song", SongSchema);
 const Artist = mongoose.model("Artist", ArtistSchema);
