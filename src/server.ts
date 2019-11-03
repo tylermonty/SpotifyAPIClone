@@ -51,7 +51,7 @@ class Application {
     // initializes connection to mongo database
     public initDatabase(): void {
         mongoose.Promise = global.Promise;
-        mongoose.connect("mongodb://localhost:27017/SpotifyClone");
+        mongoose.connect("mongodb://localhost:27017/SpotifyClone", {useNewUrlParser: true});
     }
 }
 new Application().start();

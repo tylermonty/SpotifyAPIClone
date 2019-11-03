@@ -47,7 +47,7 @@ class Application {
     // initializes connection to mongo database
     initDatabase() {
         mongoose_1.default.Promise = global.Promise;
-        mongoose_1.default.connect("mongodb://localhost:27017/SpotifyClone");
+        mongoose_1.default.connect("mongodb://localhost:27017/SpotifyClone", {useNewUrlParser:true});
     }
 }
 new Application().start();
