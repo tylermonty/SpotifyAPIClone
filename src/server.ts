@@ -6,6 +6,7 @@ import {AlbumRouter} from "./routes/album";
 import {ArtistRouter} from "./routes/artist";
 import {PlaylistRouter} from "./routes/playlist";
 import {SongRouter} from "./routes/song";
+import {UserRouter} from "./routes/user";
 
 class Application {
     public app: express.Application;
@@ -45,7 +46,7 @@ class Application {
         this.app.use("/api", new AlbumRouter().getRouter());
         this.app.use("/api", new PlaylistRouter().getRouter());
         this.app.use("/api", new SongRouter().getRouter());
-
+        this.app.use("/api", new UserRouter().getRouter());
     }
 
     // initializes connection to mongo database
