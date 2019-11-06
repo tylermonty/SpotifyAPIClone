@@ -18,6 +18,8 @@
     "@types/mongoose": "latest",
     "@types/node": "^12.12.0",
     "@types/passport": "latest",
+    "@types/bcrypt": "latest",
+    "@types/jsonwebtoken": "latest",
     "nodemon": "^1.19.4",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.0",
