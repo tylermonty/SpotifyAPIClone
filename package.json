@@ -4,10 +4,15 @@
   "description": "",
   "main": "dist/server.js",
   "dependencies": {
+    "bcrypt": "^3.0.6",
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mongodb": "^3.3.3",
-    "mongoose": "^5.7.7"
+    "mongoose": "^5.7.7",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "@types/body-parser": "^1.17.1",
@@ -16,7 +21,8 @@
     "@types/mongoose": "latest",
     "@types/node": "^12.12.0",
     "@types/passport": "latest",
-    "@types/bcrypt": "latest",
+    "@types/passport-local": "latest",
+    "@types/bcryptjs": "latest",
     "@types/jsonwebtoken": "latest",
     "nodemon": "^1.19.4",
     "npm-run-all": "^4.1.5",

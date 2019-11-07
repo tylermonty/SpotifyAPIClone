@@ -9,9 +9,9 @@ export class UserRouter {
     // Creates the routes for this router and returns a populated router object
     public getRouter(): express.Router {
         this.router.get("/", this.controller.getUsers);
-        this.router.get("/login/", this.controller.userLogin);
         this.router.get("/:id", this.controller.getUser);
         this.router.post("/", this.controller.createUser);
+        this.router.post("/login/", this.controller.postLogin);
         this.router.put("/:id", this.controller.updateUser);
         this.router.delete("/:id", this.controller.deleteUser);
 
