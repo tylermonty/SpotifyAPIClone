@@ -7,11 +7,11 @@ export class ArtistRouter {
 
     // Creates the routes for this router and returns a populated router object
     public getRouter(): express.Router {
-        this.router.get("/artist", this.controller.getArtists);
-        this.router.get("/artist/:id", this.controller.getArtist);
-        this.router.post("/artist", this.controller.createArtist);
-        this.router.put("/artist/:id", this.controller.updateArtist);
-        this.router.delete("/artist/:id", this.controller.deleteArtist);
+        this.router.get("/", this.controller.getArtists);
+        this.router.get("/:id", this.controller.getArtist);
+        this.router.post("/", this.controller.createArtist);
+        this.router.put("/:id", this.controller.updateArtist);
+        this.router.delete("/:id", this.controller.deleteArtist);
 
         return this.router;
     }
