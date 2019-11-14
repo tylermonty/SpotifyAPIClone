@@ -5,9 +5,9 @@ const Schema = mongoose.Schema;
 
 export const PlaylistSchema = new Schema(
     {
-        creator: {type: String, required: "ID of user who created playlist"},
-        followers: {type: Number, required: "number of followers"},
+        creator: {type: String, required: true},
+        followers: {type: Number, required: true},
         songs: {type: [String]}, // IDs of songs in playlist
-        title: {type: String, required: "playlist title"}
+        title: {type: String, required: true}
     }
 );

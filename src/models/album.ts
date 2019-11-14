@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 
 export const AlbumSchema = new Schema(
     {
-        artist: {type: String, required: "ID of artist"},
+        artist: {type: String, required: true},
         genre: {type: String},
-        title: {type: String, required: "album title"}
+        title: {type: String, required: true}
     }
 );

@@ -5,10 +5,10 @@ const Schema = mongoose.Schema;
 export const SongSchema = new Schema(
     {
         album: {type: String}, // ID of album if on an album
-        artist: {type: String, required: "ID of artist"},
-        duration: {type: Number, required: "song length in seconds"},
+        artist: {type: String, required: true},
+        duration: {type: Number, required: true},
         features: {type: [String]}, // List of IDs of artists who are featured on song
-        plays: {type: Number, required: "number of plays"},
-        title: {type: String, required: "song title"}
+        plays: {type: Number, required: true},
+        title: {type: String, required: true}
     }
 );

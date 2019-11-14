@@ -42,11 +42,14 @@ class Application {
     }
     // setup routes for the express server
     public buildRoutes(): void {
-        this.app.use("/api", new ArtistRouter().getRouter());
-        this.app.use("/api", new AlbumRouter().getRouter());
-        this.app.use("/api", new PlaylistRouter().getRouter());
-        this.app.use("/api", new SongRouter().getRouter());
-        this.app.use("/api", new UserRouter().getRouter());
+
+        const apiRouter = express.Router();
+        this.app.use("/api", apiRouter);
+        apiRouter.use("/artist", new ArtistRouter().getRouter());
+        apiRouter.use("/album", new AlbumRouter().getRouter());
+        apiRouter.use("/playlist", new PlaylistRouter().getRouter());
+        apiRouter.use("/song", new SongRouter().getRouter());
+        apiRouter.use("/user", new UserRouter().getRouter());
     }
 
     // initializes connection to mongo database

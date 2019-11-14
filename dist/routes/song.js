@@ -1,12 +1,17 @@
-import express from "express";
-import {SongController} from "../controllers/song";
-
-export class SongRouter {
-    private router: express.Router = express.Router();
-    private controller: SongController = new SongController();
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const song_1 = require("../controllers/song");
+class SongRouter {
+    constructor() {
+        this.router = express_1.default.Router();
+        this.controller = new song_1.SongController();
+    }
     // Creates the routes for this router and returns a populated router object
-    public getRouter(): express.Router {
+    getRouter() {
         this.router.get("/artist/:artist", this.controller.getSongsByArtist);
         this.router.get("/album/:album", this.controller.getSongsByAlbum);
         this.router.get("/:id", this.controller.getSong);
@@ -17,3 +22,5 @@ export class SongRouter {
         return this.router;
     }
 }
+exports.SongRouter = SongRouter;
+//# sourceMappingURL=song.js.map
