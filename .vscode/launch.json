@@ -32,5 +32,13 @@
             "env": {
                 "serverPort": "3000"
             }
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:4200",
+            “sourceMaps”: true,
+            "webRoot": "${workspaceFolder}"
         }]
 }
