@@ -8,6 +8,8 @@ import { runInNewContext } from "vm";
 import {IUser, UserModel} from "../models/user";
 
 const User = UserModel;
+const secret = "supersecretspystuff";
+
 export class UserController {
     public getUsers(req: express.Request, res: express.Response): void {
         User.find({}, (err, user) => {
@@ -40,7 +42,9 @@ export class UserController {
             if (err) { return res.send(err); }
             if (!user) { return res.send("no user found for given email"); }
             user.comparePassword(req.body.password, (cmperr, isMatch) => {
-                if (cmperr) { return res.send(cmperr); } else if (isMatch) { return res.send("login successful"); }
+                if (cmperr) { return res.send(cmperr); } else if (isMatch) {
+                    return res.send({token: jwt.sign(user.toJSON(), secret), user});
+                }
                 return res.send("incorrect password");
             });
         });
