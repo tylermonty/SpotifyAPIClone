@@ -5,11 +5,8 @@
   "main": "dist/server.js",
   "dependencies": {
     "bcrypt": "^3.0.6",
-<<<<<<< HEAD:package.json
-=======
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
->>>>>>> 25517152d94f5850057fb6bc6b46c51d7963e88b:API's/package.json
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
